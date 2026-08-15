@@ -438,7 +438,7 @@ ansible-playbook --syntax-check \
 
 Validation procedures are documented so the workflow remains reproducible even when additional runtime evidence is limited.
 
-![Users Role Syntax Check](screenshots/05-users-role-syntax-.png)
+![Users Role Syntax Check](screenshots/05-users-role-syntax.png)
 ---
 
 

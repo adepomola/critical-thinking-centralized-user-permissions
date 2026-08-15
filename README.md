@@ -160,7 +160,7 @@ Production requires stricter privilege management because it hosts live services
 | Linux `/etc/sudoers.d/`            | Granular sudo configuration                  |
 
 The project was developed and tested from an Ubuntu/WSL environment.
-
+![Ansible Installation Verification](screenshots/02-ansible-installation-verification.png)
 ---
 
 
@@ -178,6 +178,7 @@ The project was developed and tested from an Ubuntu/WSL environment.
 | `requirements.yml`      | Ansible Galaxy / collection dependencies                                |
 | `.gitignore`            | Protects private keys, credentials, and local artifacts                 |
 
+![Project Structure](screenshots/01-project-structure.png)
 ---
 
 ## 6. Inventory Architecture
@@ -200,6 +201,8 @@ all:
 Staging and Production follow the same pattern with their own host definitions and group variables.
 
 **Important:** Real IP addresses, private key paths, and credentials are never committed. Placeholders such as `<SERVER_IP>` and `/path/to/private-key.pem` are used in documentation and examples.
+
+![Environment Inventories](screenshots/03-environment-inventories.png)
 
 ---
 
@@ -239,6 +242,7 @@ users:
 
 Separating configuration from task logic allows the same roles and playbooks to be reused across environments while the desired state remains declarative and reviewable in Git.
 
+![Environment Variables](screenshots/04-environment-variables.png)
 ---
 
 ## 8. User Management Role
@@ -258,6 +262,7 @@ It:
 
 User removal is handled by setting `state: absent` and `remove: true` when a username appears in `users_to_remove`.
 
+![User Creation Deployment](screenshots/07-user-creation-deployment.png)
 ---
 
 ## 9. SSH Key Management
@@ -294,7 +299,7 @@ id_ed25519
 ```
 
 and other private key patterns.
-
+![SSH Key Management](screenshots/06-ssh-key-management.png)
 ---
 
 ## 10. Role-Based Sudo Management
@@ -313,6 +318,7 @@ visudo -cf /etc/sudoers.d/<filename>
 
 Validation before applying changes is critical. An invalid sudoers file can lock administrators out of elevated access. The role therefore checks syntax prior to activation.
 
+![Sudo Permissions](screenshots/08-sudo-permissions.png)
 ---
 
 ## 11. Playbooks
@@ -432,6 +438,7 @@ ansible-playbook --syntax-check \
 
 Validation procedures are documented so the workflow remains reproducible even when additional runtime evidence is limited.
 
+![Users Role Syntax Check](screenshots/05-users-role-syntax-check.png)
 ---
 
 

@@ -163,52 +163,7 @@ The project was developed and tested from an Ubuntu/WSL environment.
 
 ---
 
-## 5. Repository Structure
 
-```text
-centralized-user-management/
-âââ .github/
-â   âââ workflows/
-â       âââ user-management.yml
-â
-âââ inventories/
-â   âââ development/
-â   â   âââ hosts.yml
-â   â   âââ group_vars/
-â   â       âââ development.yml
-â   â
-â   âââ staging/
-â   â   âââ hosts.yml
-â   â   âââ group_vars/
-â   â       âââ staging.yml
-â   â
-â   âââ production/
-â       âââ hosts.yml
-â       âââ group_vars/
-â           âââ production.yml
-â
-âââ playbooks/
-â   âââ manage-users.yml
-â   âââ manage-groups.yml
-â   âââ configure-sudo.yml
-â   âââ configure-ssh.yml
-â   âââ audit-users.yml
-â
-âââ roles/
-â   âââ users/
-â   âââ groups/
-â   âââ sudo/
-â   âââ ssh/
-â   âââ audit/
-â
-âââ files/
-â   âââ ssh-keys/
-â
-âââ ansible.cfg
-âââ requirements.yml
-âââ .gitignore
-âââ README.md
-```
 
 ### Purpose of Major Directories
 
@@ -346,9 +301,9 @@ and other private key patterns.
 
 The `roles/sudo` role implements environment-aware privilege assignment:
 
-- **Development** â regular developers receive no elevated privileges
-- **Staging** â staging administrators receive limited sudo
-- **Production** â only production administrators receive full sudo; regular production users receive none
+- **Development**  regular developers receive no elevated privileges
+- **Staging**  staging administrators receive limited sudo
+- **Production**  only production administrators receive full sudo; regular production users receive none
 
 Sudoers drop-in files are written under `/etc/sudoers.d/` and validated with:
 
@@ -479,36 +434,7 @@ Validation procedures are documented so the workflow remains reproducible even w
 
 ---
 
-## 16. Screenshot Evidence
 
-| #  | Screenshot File                              | Description                                              |
-|----|----------------------------------------------|----------------------------------------------------------|
-| 1  | `screenshots/01-project-structure.png`       | Overall Ansible project directory structure              |
-| 2  | `screenshots/02-ansible-installation-verification.png` | Ansible installation/version and environment verification |
-| 3  | `screenshots/03-environment-inventories.png` | Development, Staging, and Production inventory configuration and validation |
-| 4  | `screenshots/04-environment-variables.png`   | Environment-specific user definitions and access variables |
-| 5  | `screenshots/05-users-role-syntax-check.png` | Successful syntax validation of the user-management playbook |
-| 6  | `screenshots/06-ssh-key-management.png`      | SSH public-key files and Git protection configuration    |
-| 7  | `screenshots/07-user-creation-deployment.png`| Ansible user-management deployment execution and play recap |
-| 8  | `screenshots/08-sudo-permissions.png`        | Role-based sudo configuration and deployment             |
-
-![Project Structure](screenshots/01-project-structure.png)
-
-![Ansible Installation Verification](screenshots/02-ansible-installation-verification.png)
-
-![Environment Inventories](screenshots/03-environment-inventories.png)
-
-![Environment Variables](screenshots/04-environment-variables.png)
-
-![Users Role Syntax Check](screenshots/05-users-role-syntax-check.png)
-
-![SSH Key Management](screenshots/06-ssh-key-management.png)
-
-![User Creation Deployment](screenshots/07-user-creation-deployment.png)
-
-![Sudo Permissions](screenshots/08-sudo-permissions.png)
-
----
 
 ## 17. Documentation Evidence Note
 
@@ -721,43 +647,16 @@ The solution is structured for maintainability, reviewability, and future CI/CD 
 
 ---
 
-## References & Documentation
+## References
 
-The following official documentation was consulted as technical reference material during the development and documentation of this project:
-
-- **[Ansible Documentation](https://docs.ansible.com/ansible/latest/)**  
-  Official documentation covering Ansible automation, playbooks, inventories, modules, variables, and configuration management.
-
-- **[Ansible User Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html)**  
-  Official documentation for creating, modifying, and removing Linux users with Ansible.
-
-- **[Ansible Group Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)**  
-  Official documentation for creating and managing Linux groups.
-
-- **[Ansible Authorized Key Module](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)**  
-  Official documentation for managing SSH authorized keys.
-
-- **[Ansible Inventory Guide](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html)**  
-  Documentation covering inventory organization, hosts, groups, and environment-specific configuration.
-
-- **[Ansible Roles Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html)**  
-  Documentation explaining how reusable Ansible roles are structured and implemented.
-
-- **[Ansible Vault Documentation](https://docs.ansible.com/ansible/latest/vault_guide/index.html)**  
-  Documentation for securely managing sensitive variables and secrets with Ansible Vault.
-
-- **[GitHub Actions Documentation](https://docs.github.com/en/actions)**  
-  Official documentation for creating CI/CD workflows and automating tasks from GitHub repositories.
-
-- **[GitHub Documentation](https://docs.github.com/)**  
-  Official documentation covering GitHub repositories, Git workflows, authentication, security, and collaboration.
-
-- **[OpenSSH Documentation](https://www.openssh.com/manual.html)**  
-  Reference documentation for SSH authentication, keys, configuration, and secure remote access.
-
-- **[Ubuntu Server Documentation](https://documentation.ubuntu.com/server/)**  
-  Official Ubuntu Server documentation covering system administration, users, permissions, SSH, and server security.
-
----
-
-
+- [Ansible Documentation](https://docs.ansible.com/ansible/latest/)
+- [Ansible User Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html)
+- [Ansible Group Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)
+- [Ansible Authorized Key Module](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
+- [Ansible Inventory Guide](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html)
+- [Ansible Roles Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html)
+- [Ansible Vault Documentation](https://docs.ansible.com/ansible/latest/vault_guide/index.html)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [GitHub Documentation](https://docs.github.com/)
+- [OpenSSH Documentation](https://www.openssh.com/manual.html)
+- [Ubuntu Server Documentation](https://documentation.ubuntu.com/server/)

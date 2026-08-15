@@ -184,7 +184,7 @@ The project was developed and tested from an Ubuntu/WSL environment.
 
 Inventories are strictly separated by environment. Each environment has its own `hosts.yml` and corresponding `group_vars` directory. This design prevents accidental targeting of the wrong environment and keeps environment-specific data isolated.
 
-### Example â Development Inventory
+### Example Development Inventory
 
 ```yaml
 all:
@@ -207,7 +207,7 @@ Staging and Production follow the same pattern with their own host definitions a
 
 Environment-specific users, groups, and privileges are defined in `group_vars`. This separates configuration data from task logic, improving maintainability and clarity.
 
-### Example â Development `group_vars`
+### Example  Development `group_vars`
 
 ```yaml
 environment_name: development
@@ -254,7 +254,7 @@ It:
 - Sets the default shell to `/bin/bash`
 - Deploys SSH public keys
 - Supports controlled removal through a `users_to_remove` variable
-- Remains idempotent â repeated runs converge to the desired state without unnecessary changes
+- Remains idempotent  repeated runs converge to the desired state without unnecessary changes
 
 User removal is handled by setting `state: absent` and `remove: true` when a username appears in `users_to_remove`.
 
@@ -355,17 +355,17 @@ Intended flow:
 
 ```text
 Developer
-   â
+   
 Git Commit
-   â
+   
 GitHub Repository
-   â
+   
 GitHub Actions
-   â
+   
 Ansible Playbook
-   â
+   
 Target Environment
-   â
+   
 Users / Groups / SSH / Sudo
 ```
 
@@ -507,7 +507,7 @@ Correct any reported YAML or Ansible syntax issues before execution.
 
 ## 19. How to Add a New User
 
-1. Place the userâs public key in `files/ssh-keys/` (e.g., `centralized_developer3.pub`).
+1. Place the user public key in `files/ssh-keys/` (e.g., `centralized_developer3.pub`).
 2. Update the relevant environment `group_vars` file:
 
    ```yaml
@@ -569,7 +569,7 @@ ansible-playbook \
   playbooks/manage-users.yml
 ```
 
-### Sudo Configuration (example â Production)
+### Sudo Configuration (example Production)
 
 ```bash
 ansible-playbook \
